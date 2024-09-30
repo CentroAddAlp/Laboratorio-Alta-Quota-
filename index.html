@@ -38,5 +38,31 @@
     <footer class="container">
         <p>&copy; 2024 I 13 Giorni della Cultura della Montagna</p>
     </footer>
+
+<script>
+    document.querySelectorAll('section#programma .image-container img').forEach(img => {
+        img.addEventListener('click', function() {
+            // Crea un div per l'immagine fullscreen
+            const fullscreenDiv = document.createElement('div');
+            fullscreenDiv.classList.add('fullscreen-image');
+            
+            // Crea un'immagine da inserire nel div
+            const fullscreenImg = document.createElement('img');
+            fullscreenImg.src = this.src;
+            
+            // Aggiungi l'immagine nel div
+            fullscreenDiv.appendChild(fullscreenImg);
+            
+            // Aggiungi il div al body
+            document.body.appendChild(fullscreenDiv);
+            
+            // Rimuovi il div a schermo intero quando viene cliccato
+            fullscreenDiv.addEventListener('click', function() {
+                document.body.removeChild(fullscreenDiv);
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
